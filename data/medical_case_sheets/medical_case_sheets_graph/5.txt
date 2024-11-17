@@ -1,0 +1,55 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall5", "summary": "Ein 60-jähriger Mann aus San Francisco entwickelte nach dem Verzehr von rohem Schweinefleisch auf den Philippinen eine Streptococcus suis Meningitis mit Fieber, Kopfschmerzen und Nackensteifigkeit."},
+        
+        {"label": "Person", "id": "person5", "age": "60", "location": "San Francisco", "gender": "männlich"},
+        
+        {"label": "Symptom", "id": "fieber", "description": "Fieber beim Patienten"},
+        {"label": "Symptom", "id": "kopfschmerzen", "description": "Kopfschmerzen beim Patienten"},
+        {"label": "Symptom", "id": "nackensteifigkeit", "description": "Nackensteifigkeit beim Patienten"},
+        {"label": "Symptom", "id": "schwitzen", "description": "Schwitzen beim Patienten"},
+        {"label": "Symptom", "id": "übelkeit", "description": "Übelkeit beim Patienten"},
+        {"label": "Symptom", "id": "appetitlosigkeit", "description": "Appetitlosigkeit beim Patienten"},
+        {"label": "Symptom", "id": "unwohlsein", "description": "Allgemeines Unwohlsein beim Patienten"},
+        {"label": "Symptom", "id": "hörverlust", "description": "Hörverlust im linken Ohr des Patienten"},
+        
+        {"label": "Krankheit", "id": "streptococcusSuisMeningitis", "name": "Streptococcus suis Meningitis"},
+        
+        {"label": "Körpersystem", "id": "ohren", "name": "Ohren"},
+        {"label": "Körpersystem", "id": "gehirn", "name": "Gehirn"},
+        
+        {"label": "Diagnose", "id": "laborBlutkultur", "name": "Blutkultur", "description": "Zeigte grampositive Kokken in Paaren und Ketten, Streptococcus spp. identifiziert", "when": "Tag 2 im Krankenhaus"},
+        {"label": "Diagnose", "id": "laborLiquor", "name": "Liquoruntersuchung", "description": "Zeigte 487/μL Leukozyten mit 80% polymorphkernigen Zellen", "when": "bei Aufnahme"},
+        
+        {"label": "Biologisch", "id": "leukozytenZahl", "name": "Leukozytenzahl", "description": "487/μL"},
+        {"label": "Biologisch", "id": "neutrophileZahl", "name": "Neutrophile", "description": "16.400/mm3"},
+        {"label": "Biologisch", "id": "cerebrospinalProtein", "name": "CSF-Protein", "description": "<167 mg/dL"}
+    ],
+    
+    "relationships": [
+        "fall4|FÜR|person4",
+        
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|fieber",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|kopfschmerzen",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|nackensteifigkeit",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|schwitzen",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|übelkeit",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|appetitlosigkeit",
+        "person4|HAT_SYMPTOM{when:'nach Rückkehr aus den Philippinen',frequency:'',span:''}|unwohlsein",
+        "person4|HAT_SYMPTOM{when:'Tag 5 im Krankenhaus',frequency:'',span:''}|hörverlust",
+        
+        "person4|HAT_KRANKHEIT{when:'bei Aufnahme'}|streptococcusSuisMeningitis",
+        
+        "streptococcusSuisMeningitis|BETRIFFT|gehirn",
+        "streptococcusSuisMeningitis|BETRIFFT|ohren",
+        
+        "person4|HAT_DIAGNOSE|laborBlutkultur",
+        "person4|HAT_DIAGNOSE|laborLiquor",
+        
+        "laborLiquor|ZEIGTE|leukozytenZahl",
+        "laborBlutkultur|ZEIGTE|neutrophileZahl",
+        "laborLiquor|ZEIGTE|cerebrospinalProtein"
+    ]
+}
+
+

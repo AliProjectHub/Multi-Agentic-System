@@ -1,0 +1,42 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall4", "summary": "Eine 30-jährige Frau unterzog sich einer Rhinoplastie unter Vollnarkose, bei der Remifentanyl und Propofol eingesetzt wurden. Nach der Operation trat eine Zungenabweichung nach rechts und eine Stimmbandlähmung auf, die durch konservative Behandlung vollständig behoben wurden."},
+        
+        {"label": "Person", "id": "person4", "alter": "30", "ort": "", "geschlecht": "weiblich"},
+        
+        {"label": "Symptom", "id": "schluckbeschwerden", "beschreibung": "Schwierigkeiten beim Schlucken nach der Operation"},
+        {"label": "Symptom", "id": "heiserkeit", "beschreibung": "Heiserkeit nach der Operation"},
+        {"label": "Symptom", "id": "dysphonie", "beschreibung": "Dysphonie nach der Operation"},
+        
+        {"label": "Krankheit", "id": "nervenverletzung", "name": "Hypoglossus- und Rekurrensparese"},
+        
+        {"label": "Körpersystem", "id": "kehlkopf", "name": "Kehlkopf"},
+        {"label": "Körpersystem", "id": "zunge", "name": "Zunge"},
+        
+        {"label": "Diagnose", "id": "neurologischeUntersuchung", "name": "Neurologische Untersuchung", "beschreibung": "Untersuchung ergab keine zentralen oder weiteren Hirnnervenbeteiligungen", "wann": "nach der Operation"},
+        {"label": "Diagnose", "id": "mrnUntersuchung", "name": "MRN-Untersuchung", "beschreibung": "Keine Hinweise auf zusätzliche zentrale oder Hirnnervenschäden", "wann": "nach der Operation"},
+        
+        {"label": "Biologisch", "id": "stimmbaender", "name": "Stimmbandlähmung", "beschreibung": "Rechte Stimmbandlähmung festgestellt"},
+        {"label": "Biologisch", "id": "zungenabweichung", "name": "Zungenabweichung", "beschreibung": "Zunge weicht nach rechts ab"}
+    ],
+    
+    "relationships": [
+        "fall4|FÜR|person4",
+        
+        "person4|HAT_SYMPTOM{wann:'postoperativ',frequenz:'',dauer:'kurzzeitig'}|schluckbeschwerden",
+        "person4|HAT_SYMPTOM{wann:'postoperativ',frequenz:'',dauer:'kurzzeitig'}|heiserkeit",
+        "person4|HAT_SYMPTOM{wann:'postoperativ',frequenz:'',dauer:'kurzzeitig'}|dysphonie",
+        
+        "person4|HAT_KRANKHEIT{wann:'postoperativ'}|nervenverletzung",
+        
+        "person4|HAT_DIAGNOSE|neurologischeUntersuchung",
+        "person4|HAT_DIAGNOSE|mrnUntersuchung",
+        
+        "neurologischeUntersuchung|ZEIGTE|stimmbaender",
+        "mrnUntersuchung|ZEIGTE|zungenabweichung",
+        
+        "nervenverletzung|BETRIFFT|kehlkopf",
+        "nervenverletzung|BETRIFFT|zunge"
+    ]
+}
+

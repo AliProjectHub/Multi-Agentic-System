@@ -1,0 +1,61 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall6", "summary": "Ein 74-jähriger Mann wurde im November 2000 wegen einer bei einem medizinischen Checkup festgestellten Leberfunktionsstörung in unser Krankenhaus überwiesen. Der Patient wurde 1995 mit nephrotischem Syndrom diagnostiziert. Laboruntersuchungen zeigten erhöhte hepato-biliäre Enzyme, IgM und antimitochondriale Antikörper, während serologische Marker für Hepatitis B und C negativ waren. Histopathologische Untersuchung ergab PBC (Scheuer-Stadium 3). Der Patient erhielt eine Behandlung mit Ursodeoxycholsäure und wiederholte endoskopische Eingriffe zur Behandlung von Ösophagusvarizen. Eine ITP-Diagnose wurde später hinzugefügt, und verschiedene Therapien zur Behandlung der Symptome wurden angewendet, einschließlich Prednisolon und Diuretika."},
+        
+        {"label": "Person", "id": "person6", "age": "74", "location": "", "gender": "männlich"},
+        
+        {"label": "Symptom", "id": "leberfunktionsstoerung", "description": "Leberfunktionsstörung"},
+        {"label": "Symptom", "id": "oesophagusvarizen", "description": "Wiederkehrende Ösophagusvarizen"},
+        {"label": "Symptom", "id": "thrombozytopenie", "description": "Verschlechterung der Thrombozytopenie"},
+        {"label": "Symptom", "id": "ascites", "description": "Aszites"},
+        {"label": "Symptom", "id": "melana", "description": "Meläna"},
+        
+        {"label": "Krankheit", "id": "nephrotischesSyndrom", "name": "Nephrotisches Syndrom"},
+        {"label": "Krankheit", "id": "pbc", "name": "Primär biliäre Cholangitis (PBC)"},
+        {"label": "Krankheit", "id": "itp", "name": "Idiopathische thrombozytopenische Purpura (ITP)"},
+        {"label": "Krankheit", "id": "dekompensierteLeberzirrhose", "name": "Dekompeniserte Leberzirrhose"},
+        
+        {"label": "Körpersystem", "id": "leber", "name": "Leber"},
+        {"label": "Körpersystem", "id": "milz", "name": "Milz"},
+        {"label": "Körpersystem", "id": "oesophagus", "name": "Ösophagus"},
+        
+        {"label": "Diagnose", "id": "leberbiopsie", "name": "Leberbiopsie", "description": "Zeigte nicht-eitrige destruktive Cholangitis im Portalbereich", "when": "im Jahr 2000"},
+        {"label": "Diagnose", "id": "knochenmarkBiopsie", "name": "Knochenmarkbiopsie", "description": "Zeigte normozelluläres Knochenmark ohne Zellatypien", "when": "im Jahr 2007"},
+        {"label": "Diagnose", "id": "hlaTypisierung", "name": "HLA-Typisierung", "description": "Detektierte HLA-Typen A*02010101, B*400201, C*030401, C*07020101, DPB1*0501, DQA1*0103, DQA1*030101, DQB1*030201, DQB1*060101, DRB1*080201, DRB1*080302", "when": "nach ITP-Diagnose"},
+        {"label": "Diagnose", "id": "ureaAtemtest", "name": "13C Harnstoff Atemtest", "description": "Negativ auf H. pylori Infektion", "when": "nach ITP-Diagnose"},
+        
+        {"label": "Biologisch", "id": "igGspiegel", "name": "IgG-Spiegel", "description": "Stark erhöhter thrombocyten-assoziierter IgG-Spiegel"},
+        {"label": "Biologisch", "id": "leukozytenzahl", "name": "Leukozytenzahl", "description": "21.000/mm3"},
+        {"label": "Biologisch", "id": "thrombozytenzahl", "name": "Thrombozytenzahl", "description": "Zwischen 52×10^9/L und 69×10^9/L, zuletzt auf 8×10^9/L gesunken"}
+    ],
+    
+    "relationships": [
+        "fall6|FÜR|person6",
+        
+        "person6|HAT_SYMPTOM{when:'2000',frequency:'',span:''}|leberfunktionsstoerung",
+        "person6|HAT_SYMPTOM{when:'2007',frequency:'wiederkehrend',span:'chronisch'}|oesophagusvarizen",
+        "person6|HAT_SYMPTOM{when:'2007',frequency:'',span:''}|thrombozytopenie",
+        "person6|HAT_SYMPTOM{when:'2007',frequency:'',span:''}|ascites",
+        "person6|HAT_SYMPTOM{when:'2007',frequency:'einmalig',span:'kurzfristig'}|melana",
+        
+        "person6|HAT_KRANKHEIT{when:'vorgeschichte'}|nephrotischesSyndrom",
+        "person6|HAT_KRANKHEIT{when:'2000'}|pbc",
+        "person6|HAT_KRANKHEIT{when:'2007'}|dekompensierteLeberzirrhose",
+        "person6|HAT_KRANKHEIT{when:'2007'}|itp",
+        
+        "pbc|BETRIFFT|leber",
+        "dekompensierteLeberzirrhose|BETRIFFT|leber",
+        "itp|BETRIFFT|milz",
+        
+        "person6|HAT_DIAGNOSE|leberbiopsie",
+        "person6|HAT_DIAGNOSE|knochenmarkBiopsie",
+        "person6|HAT_DIAGNOSE|hlaTypisierung",
+        "person6|HAT_DIAGNOSE|ureaAtemtest",
+        
+        "knochenmarkBiopsie|ZEIGTE|leukozytenzahl",
+        "knochenmarkBiopsie|ZEIGTE|thrombozytenzahl",
+        "knochenmarkBiopsie|ZEIGTE|igGspiegel"
+    ]
+}
+
+

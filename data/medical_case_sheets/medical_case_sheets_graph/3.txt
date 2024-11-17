@@ -1,0 +1,60 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall3", "summary": "Ein 23-jähriger Mann mit Morbus Crohn und akuten Symptomen von Fieber, Bauchschmerzen, Erbrechen, Durchfall und Hautausschlag. Der Patient hatte Gelenkschmerzen, eine kürzlich durchgeführte Ileostomie und eine Hautbiopsie zeigte leukozytoklastische Vaskulitis. Er wurde erfolgreich mit Prednisolon behandelt."},
+        
+        {"label": "Person", "id": "person3", "age": "23", "location": "", "gender": "männlich"},
+        
+        {"label": "Symptom", "id": "unwohlsein", "description": "Unwohlsein beim Patienten"},
+        {"label": "Symptom", "id": "fieber", "description": "Fieber beim Patienten"},
+        {"label": "Symptom", "id": "bauchschmerzen", "description": "Bauchschmerzen beim Patienten"},
+        {"label": "Symptom", "id": "erbrechen", "description": "Erbrechen beim Patienten"},
+        {"label": "Symptom", "id": "stomaleDiarrhoe", "description": "Stomale Diarrhoe beim Patienten"},
+        {"label": "Symptom", "id": "gelenkschmerzen", "description": "Gelenkschmerzen in Schultern, Ellbogen, Handgelenken, Metakarpophalangealgelenken, Knien und Knöcheln"},
+        {"label": "Symptom", "id": "hautausschlag", "description": "Hautausschlag mit erythematösen Flecken und pusteligen Läsionen"},
+        
+        {"label": "Krankheit", "id": "morbusCrohn", "name": "Morbus Crohn"},
+        {"label": "Krankheit", "id": "leukozytoklastischeVaskulitis", "name": "Leukozytoklastische Vaskulitis"},
+        
+        {"label": "Körpersystem", "id": "bauch", "name": "Bauch"},
+        {"label": "Körpersystem", "id": "haut", "name": "Haut"},
+        {"label": "Körpersystem", "id": "gelenke", "name": "Gelenke"},
+        
+        {"label": "Diagnose", "id": "hautBiopsie", "name": "Hautbiopsie", "description": "Zeigte perivaskuläres lymphohistiozytäres Infiltrat mit prominenten Neutrophilen und fibrinoider Nekrose", "when": "bei Aufnahme"},
+        {"label": "Diagnose", "id": "laborErgebnisse", "name": "Laborergebnisse", "description": "Hämoglobin 13,1 g/dl, Leukozyten 15,8 × 10^9/L, Thrombozyten 585 × 10^9/L, CRP 37,7 mg/L, BSG 69 mm/h", "when": "bei Aufnahme"},
+        
+        {"label": "Biologisch", "id": "haemoglobin", "name": "Hämoglobin", "description": "13,1 g/dl"},
+        {"label": "Biologisch", "id": "leukozytenZahl", "name": "Leukozytenzahl", "description": "15,8 × 10^9/L"},
+        {"label": "Biologisch", "id": "thrombozyten", "name": "Thrombozyten", "description": "585 × 10^9/L"},
+        {"label": "Biologisch", "id": "cReaktivesProtein", "name": "C-reaktives Protein", "description": "37,7 mg/L"},
+        {"label": "Biologisch", "id": "blutsenkungsrate", "name": "Blutsenkungsrate", "description": "69 mm/h"}
+    ],
+    
+    "relationships": [
+        "fall3|FÜR|person3",
+        
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|unwohlsein",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|fieber",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|bauchschmerzen",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|erbrechen",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|stomaleDiarrhoe",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|gelenkschmerzen",
+        "person3|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|hautausschlag",
+        
+        "person3|HAT_KRANKHEIT{when:'vorgeschichte'}|morbusCrohn",
+        "person3|HAT_KRANKHEIT{when:'bei Vorstellung'}|leukozytoklastischeVaskulitis",
+        
+        "morbusCrohn|BETRIFFT|bauch",
+        "leukozytoklastischeVaskulitis|BETRIFFT|haut",
+        
+        "person3|HAT_DIAGNOSE|hautBiopsie",
+        "person3|HAT_DIAGNOSE|laborErgebnisse",
+        
+        "laborErgebnisse|ZEIGTE|haemoglobin",
+        "laborErgebnisse|ZEIGTE|leukozytenZahl",
+        "laborErgebnisse|ZEIGTE|thrombozyten",
+        "laborErgebnisse|ZEIGTE|cReaktivesProtein",
+        "laborErgebnisse|ZEIGTE|blutsenkungsrate",
+        
+        "hautBiopsie|BESTÄTIGTE|leukozytoklastischeVaskulitis"
+    ]
+}

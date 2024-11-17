@@ -1,0 +1,102 @@
+{
+    "entities": [
+        {
+            "label": "Fall",
+            "id": "fall7",
+            "summary": "18-jähriger Mann mit Diagnose ADHS und Adipositas. Wurde mit respiratorischen Symptomen und vermuteter Kardiomyopathie eingeliefert; behandelt mit verschiedenen Medikamenten, Dialyse und Herzunterstützung. Entlassen mit verbessertem klinischen Status, jedoch reduzierter Ejektionsfraktion."
+        },
+        {
+            "label": "Person",
+            "id": "person7",
+            "age": "18",
+            "location": "lokales Krankenhaus; überwiesen zum Rikshospitalet, Oslo",
+            "gender": "männlich"
+        },
+        {
+            "label": "Krankheit",
+            "id": "adhs",
+            "name": "Aufmerksamkeitsdefizit-Hyperaktivitätsstörung"
+        },
+        {
+            "label": "Krankheit",
+            "id": "adipositas",
+            "name": "Adipositas"
+        },
+        {
+            "label": "Symptom",
+            "id": "schweresDyspnoe",
+            "description": "schweres Dyspnoe"
+        },
+        {
+            "label": "Symptom",
+            "id": "tachypnoe",
+            "description": "Tachypnoe"
+        },
+        {
+            "label": "Symptom",
+            "id": "tachykardie",
+            "description": "Tachykardie"
+        },
+        {
+            "label": "Symptom",
+            "id": "zyanose",
+            "description": "Zyanose"
+        },
+        {
+            "label": "Körpersystem",
+            "id": "herz",
+            "name": "Herz"
+        },
+        {
+            "label": "Krankheit",
+            "id": "dilatativeKardiomyopathie",
+            "name": "dilatative Kardiomyopathie"
+        },
+        {
+            "label": "Diagnose",
+            "id": "echokardiografieHerzversagen",
+            "name": "Echokardiografie",
+            "description": "enthüllte biventrikuläres Versagen und stark hypokinetisches linkes Ventrikel mit einer EF von 10%–12%",
+            "when": "bei Aufnahme im Rikshospitalet"
+        },
+        {
+            "label": "Biologisch",
+            "id": "vergroessertesHerz",
+            "name": "vergrößertes Herz",
+            "description": "Röntgenaufnahme der Brust zeigte ein vergrößertes Herz"
+        },
+        {
+            "label": "Biologisch",
+            "id": "reduzierteEF",
+            "name": "reduzierte Ejektionsfraktion",
+            "description": "Ejektionsfraktion (EF) von 20%–25% zu Beginn und später 10%–12%"
+        },
+        {
+            "label": "Krankheit",
+            "id": "kardiogenerSchock",
+            "name": "kardiogener Schock"
+        },
+        {
+            "label": "Diagnose",
+            "id": "lungenembolieScreening",
+            "name": "Screening auf Lungenembolie",
+            "description": "keine Lungenembolie auf CT und Screening festgestellt",
+            "when": "Anfang August 2006"
+        }
+    ],
+    "relationships": [
+        "fall7|FÜR|person1",
+        "person7|HAT_KRANKHEIT{wann:'2005'}|adhs",
+        "person7|HAT_KRANKHEIT{wann:'2005'}|adipositas",
+        "person7|HAT_SYMPTOM{wann:'August 2006',häufigkeit:'anfangs'}|schweresDyspnoe",
+        "person7|HAT_SYMPTOM{wann:'August 2006',häufigkeit:'anfangs'}|tachypnoe",
+        "person7|HAT_SYMPTOM{wann:'August 2006',häufigkeit:'anfangs'}|tachykardie",
+        "person7|HAT_SYMPTOM{wann:'August 2006',häufigkeit:'anfangs'}|zyanose",
+        "dilatativeKardiomyopathie|BETRIFFT|herz",
+        "person7|HAT_DIAGNOSE|echokardiografieHerzversagen",
+        "echokardiografieHerzversagen|ZEIGTE|reduzierteEF",
+        "person7|HAT_DIAGNOSE|lungenembolieScreening",
+        "lungenembolieScreening|ZEIGTE|vergroessertesHerz",
+        "person7|HAT_KRANKHEIT|kardiogenerSchock"
+    ]
+}

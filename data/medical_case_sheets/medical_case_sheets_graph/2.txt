@@ -1,0 +1,56 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall2", "summary": "Ein 34-jähriger Mann mit Fieber und chronischem Husten. Vorgeschichte mit Tuberkulose. Diagnostiziert mit Langerhans-Zell-Histiozytose (LCH) und einem möglichen Sarkom. Wurde operiert und zeigte gute Genesung 5 Monate nach der Lobektomie."},
+        
+        {"label": "Person", "id": "person2", "age": "34", "location": "", "gender": "männlich"},
+        
+        {"label": "Symptom", "id": "fieber", "description": "Fieber beim Patienten"},
+        {"label": "Symptom", "id": "chronischerHusten", "description": "Chronischer Husten beim Patienten"},
+        
+        {"label": "Krankheit", "id": "pulmonaleTuberkulose", "name": "Pulmonale Tuberkulose"},
+        {"label": "Krankheit", "id": "langerhansZellHistiozytose", "name": "Langerhans-Zell-Histiozytose (LCH)"},
+        {"label": "Krankheit", "id": "sarkom", "name": "Mögliches Sarkom"},
+        
+        {"label": "Körpersystem", "id": "lunge", "name": "Lunge"},
+        {"label": "Körpersystem", "id": "rechterLungenlappen", "name": "Rechter oberer Lungenlappen"},
+        {"label": "Körpersystem", "id": "linkerLungenlappen", "name": "Linker unterer Lungenlappen"},
+        
+        {"label": "Diagnose", "id": "ctScan", "name": "CT-Scan", "description": "Zeigte winzige Knötchen in beiden Lungen", "when": "initiale Untersuchung"},
+        {"label": "Diagnose", "id": "biopsie", "name": "Lungenbiopsie", "description": "Zeigte typische LCH mit positiven Markern S-100, Vimentin, CD68, CD1a", "when": "Thorakoskopische Entnahme"},
+        {"label": "Diagnose", "id": "nachuntersuchungCt", "name": "Nachuntersuchung CT-Scan", "description": "Zeigte eine 4 cm große Masse im linken unteren Lappen", "when": "1 Jahr nach Erstuntersuchung"},
+        {"label": "Diagnose", "id": "lobektomie", "name": "Lobektomie", "description": "Entfernte eine 4 cm große schlecht abgegrenzte grauweiße Masse", "when": "Nach Nachuntersuchung CT"},
+        
+        {"label": "Biologisch", "id": "s100Protein", "name": "S-100 Protein", "description": "Stark positiv in Tumorzellen"},
+        {"label": "Biologisch", "id": "vimentin", "name": "Vimentin", "description": "Stark positiv in Tumorzellen"},
+        {"label": "Biologisch", "id": "cd68", "name": "CD68", "description": "Positiv in Tumorzellen"},
+        {"label": "Biologisch", "id": "cd1a", "name": "CD1a", "description": "Fokal positiv in Tumorzellen"}
+    ],
+    
+    "relationships": [
+        "fall2|FÜR|person2",
+        
+        "person2|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|fieber",
+        "person2|HAT_SYMPTOM{when:'bei Vorstellung',frequency:'',span:''}|chronischerHusten",
+        
+        "person2|HAT_KRANKHEIT{when:'vorgeschichte'}|pulmonaleTuberkulose",
+        "person2|HAT_KRANKHEIT{when:'initiale Untersuchung'}|langerhansZellHistiozytose",
+        "person2|HAT_KRANKHEIT{when:'nach biopsie'}|sarkom",
+        
+        "pulmonaleTuberkulose|BETRIFFT|lunge",
+        "langerhansZellHistiozytose|BETRIFFT|rechterLungenlappen",
+        "sarkom|BETRIFFT|linkerLungenlappen",
+        
+        "person2|HAT_DIAGNOSE|ctScan",
+        "person2|HAT_DIAGNOSE|biopsie",
+        "person2|HAT_DIAGNOSE|nachuntersuchungCt",
+        "person2|HAT_DIAGNOSE|lobektomie",
+        
+        "biopsie|ZEIGTE|langerhansZellHistiozytose",
+        "nachuntersuchungCt|ZEIGTE|sarkom",
+        
+        "biopsie|ZEIGTE|s100Protein",
+        "biopsie|ZEIGTE|vimentin",
+        "biopsie|ZEIGTE|cd68",
+        "biopsie|ZEIGTE|cd1a"
+    ]
+}

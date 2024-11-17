@@ -1,0 +1,109 @@
+{
+    "entities": [
+        {
+            "label": "Fall",
+            "id": "fall8",
+            "summary": "Eine 63-jährige Frau ohne bekannte Herzgeschichte wurde mit plötzlich einsetzendem Dyspnoe vorstellig, das zur Intubation und mechanischen Beatmung führte. Die kardiale Untersuchung ergab eine Sinustachykardie, erhöhten Jugularvenendruck und basale Rasselgeräusche in beiden Lungenfeldern. Erste Diagnostik deutete auf ein Lungenödem hin, ohne Abweichungen bei kardialen Biomarkern. Weitere Untersuchungen ergaben einen 4 x 9 cm großen multinodulären Struma, der eine Trachealstenose und wiederkehrendes NPPE verursachte, welches operativ durch eine Thyreoidektomie behandelt wurde."
+        },
+        {
+            "label": "Person",
+            "id": "person8",
+            "age": "63",
+            "gender": "weiblich",
+            "location": "nicht angegeben"
+        },
+        {
+            "label": "Symptom",
+            "id": "dyspnoe",
+            "description": "plötzlich einsetzendes Dyspnoe, das Intubation und Beatmungsunterstützung erforderte"
+        },
+        {
+            "label": "Symptom",
+            "id": "sinustachykardie",
+            "description": "Sinustachykardie mit 140 Schlägen/Min"
+        },
+        {
+            "label": "Symptom",
+            "id": "erhöhterJugularvenendruck",
+            "description": "erhöhter Jugularvenendruck am Kieferwinkel"
+        },
+        {
+            "label": "Symptom",
+            "id": "basaleRasselgeräusche",
+            "description": "basale Rasselgeräusche in beiden Lungenfeldern"
+        },
+        {
+            "label": "Symptom",
+            "id": "dritterHerzton",
+            "description": "linksseitiger dritter Herzton"
+        },
+        {
+            "label": "Krankheit",
+            "id": "nppe",
+            "name": "Negativdruck-Lungenödem (NPPE)"
+        },
+        {
+            "label": "Krankheit",
+            "id": "trachealstenose",
+            "name": "Trachealstenose"
+        },
+        {
+            "label": "Körpersystem",
+            "id": "lungen",
+            "name": "Lungen"
+        },
+        {
+            "label": "Diagnose",
+            "id": "ekgAnterolateraleIschämie",
+            "name": "Elektrokardiogramm",
+            "description": "ST-Senkung in den Ableitungen V2 bis V6, verdächtig auf anterolaterale Ischämie",
+            "when": "Erstuntersuchung"
+        },
+        {
+            "label": "Diagnose",
+            "id": "echoDiastolischeDysfunktion",
+            "name": "Echokardiographie",
+            "description": "Leichte diastolische Dysfunktion mit frühem zu spätem diastolischen Transmitral-Verhältnis unter 1, verlängerter Dekzeit (250 ms) und reduzierter frühem diastolischem Anulusverschiebung der lateralen Mitralklappe",
+            "when": "während der Erstuntersuchung"
+        },
+        {
+            "label": "Diagnose",
+            "id": "thoraxRöntgenbild",
+            "name": "Thoraxröntgen",
+            "description": "Pulmonale Gefäßstauung, konsistent mit einem Lungenödem",
+            "when": "Erstuntersuchung"
+        },
+        {
+            "label": "Diagnose",
+            "id": "ctScanStrumaStenose",
+            "name": "CT-Scan",
+            "description": "4 cm x 9 cm großer multinodulärer Struma, der in das Mediastinum reicht, mit verdächtiger Trachealstenose",
+            "when": "während des Krankenhausaufenthalts"
+        },
+        {
+            "label": "Biologisch",
+            "id": "normaleKoronararterien",
+            "name": "Koronarangiographie",
+            "description": "Normale Koronararterien"
+        }
+    ],
+    "relationships": [
+        {"head": "fall8", "relationship": "FÜR", "tail": "person8"},
+        {"head": "person8", "relationship": "HAT_SYMPTOM", "tail": "dyspnoe", "when": "plötzlicher Beginn"},
+        {"head": "person8", "relationship": "HAT_SYMPTOM", "tail": "sinustachykardie", "when": "bei Erstvorstellung"},
+        {"head": "person8", "relationship": "HAT_SYMPTOM", "tail": "erhöhterJugularvenendruck", "when": "Erstuntersuchung"},
+        {"head": "person8", "relationship": "HAT_SYMPTOM", "tail": "basaleRasselgeräusche", "when": "Erstuntersuchung"},
+        {"head": "person8", "relationship": "HAT_SYMPTOM", "tail": "dritterHerzton", "when": "Erstuntersuchung"},
+        {"head": "person8", "relationship": "HAT_KRANKHEIT", "tail": "nppe", "when": "nach Extubationsversagen"},
+        {"head": "person8", "relationship": "HAT_KRANKHEIT", "tail": "trachealstenose", "when": "bei CT-Befund"},
+        {"head": "dyspnoe", "relationship": "GESEHEN_IN", "tail": "lungen"},
+        {"head": "nppe", "relationship": "BETRIFFT", "tail": "lungen"},
+        {"head": "person8", "relationship": "HAT_DIAGNOSE", "tail": "ekgAnterolateraleIschämie"},
+        {"head": "person8", "relationship": "HAT_DIAGNOSE", "tail": "echoDiastolischeDysfunktion"},
+        {"head": "person8", "relationship": "HAT_DIAGNOSE", "tail": "thoraxRöntgenbild"},
+        {"head": "person8", "relationship": "HAT_DIAGNOSE", "tail": "ctScanStrumaStenose"},
+        {"head": "ctScanStrumaStenose", "relationship": "ZEIGTE", "tail": "trachealstenose"},
+        {"head": "person8", "relationship": "HAT_DIAGNOSE", "tail": "normaleKoronararterien"},
+        {"head": "normaleKoronararterien", "relationship": "ZEIGTE", "tail": "nppe"}
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "entities": [
+        {"label": "Fall", "id": "fall1", "summary": "Ein 28-jähriger Mann stellte sich mit einer sechswöchigen Vorgeschichte von Herzklopfen in Ruhe und Atemnot vor. Diagnostiziert mit Ebstein-Anomalie, Trikuspidalinsuffizienzgeräusch und Wolff-Parkinson-White-Syndrom. Behandelt mit Hochfrequenzablation; kein Wiederauftreten der Symptome bei der Nachuntersuchung nach 6 Monaten."},
+        
+        {"label": "Person", "id": "person1", "age": "28", "location": "", "gender": "männlich"},
+        
+        {"label": "Symptom", "id": "herzklopfen", "description": "Herzklopfen in Ruhe, bis zu 30 Minuten anhaltend, 2-3 Mal pro Woche"},
+        {"label": "Symptom", "id": "atemnot", "description": "Atemnot in Verbindung mit Herzklopfen"},
+        
+        {"label": "Krankheit", "id": "trikuspidalinsuffizienz", "name": "Trikuspidalinsuffizienz"},
+        {"label": "Krankheit", "id": "ebsteinAnomalie", "name": "Ebstein-Anomalie"},
+        {"label": "Krankheit", "id": "wolffParkinsonWhiteSyndrom", "name": "Wolff-Parkinson-White-Syndrom"},
+        
+        {"label": "Körpersystem", "id": "trikuspidalklappe", "name": "Trikuspidalklappe"},
+        {"label": "Körpersystem", "id": "rechterVentrikel", "name": "Rechter Ventrikel"},
+        {"label": "Körpersystem", "id": "vorhof", "name": "Rechter Vorhof"},
+        
+        {"label": "Diagnose", "id": "elektrokardiogramm", "name": "Elektrokardiogramm", "description": "Zeigte normalen Sinusrhythmus mit Wolff-Parkinson-White-Präexzitationsmuster", "when": "Erstuntersuchung"},
+        {"label": "Diagnose", "id": "echokardiographie", "name": "Transthorakale Echokardiographie", "description": "Zeigte Ebstein-Anomalie und atrialisierten rechten Ventrikel", "when": "Erstuntersuchung"},
+        {"label": "Diagnose", "id": "kontrastEchokardiographie", "name": "Kontrastechokardiographie", "description": "Zeigte ein offenes Foramen ovale mit Rechts-zu-Links-Shunt", "when": "Erstuntersuchung"},
+        {"label": "Diagnose", "id": "elektrophysiologischeUntersuchung", "name": "Elektrophysiologische Untersuchung", "description": "Kartierung der zusätzlichen Leitungsbahn", "when": "vor der Ablation"},
+        
+        {"label": "Biologisch", "id": "prIntervall", "name": "Verlängertes PR-Intervall", "description": "Ergebnis der abnormen Impulsleitung im atrialisierten rechten Ventrikel nach Ablation"},
+        {"label": "Biologisch", "id": "zweiterQrsKomplex", "name": "Zweiter QRS-Komplex", "description": "Vorhanden in den Ableitungen III, aVF, V2–V4 nach Ablation"}
+    ],
+    
+    "relationships": [
+        "fall1|FÜR|person1",
+        
+        "person1|HAT_SYMPTOM{when:'6 Wochen vor Vorstellung',frequency:'2-3 Mal pro Woche',span:'bis zu 30 Minuten'}|herzklopfen",
+        "person1|HAT_SYMPTOM{when:'während Herzklopfen',frequency:'',span:''}|atemnot",
+        
+        "person1|HAT_KRANKHEIT{when:'Erstuntersuchung'}|trikuspidalinsuffizienz",
+        "person1|HAT_KRANKHEIT{when:'Erstuntersuchung'}|ebsteinAnomalie",
+        "person1|HAT_KRANKHEIT{when:'Erstuntersuchung'}|wolffParkinsonWhiteSyndrom",
+        
+        "trikuspidalinsuffizienz|BETRIFFT|trikuspidalklappe",
+        "ebsteinAnomalie|BETRIFFT|trikuspidalklappe",
+        "ebsteinAnomalie|BETRIFFT|rechterVentrikel",
+        "ebsteinAnomalie|BETRIFFT|vorhof",
+        
+        "person1|HAT_DIAGNOSE|elektrokardiogramm",
+        "person1|HAT_DIAGNOSE|echokardiographie",
+        "person1|HAT_DIAGNOSE|kontrastEchokardiographie",
+        "person1|HAT_DIAGNOSE|elektrophysiologischeUntersuchung",
+        
+        "elektrokardiogramm|ZEIGTE|wolffParkinsonWhiteSyndrom",
+        "echokardiographie|ZEIGTE|ebsteinAnomalie",
+        "kontrastEchokardiographie|ZEIGTE|trikuspidalinsuffizienz",
+        "elektrophysiologischeUntersuchung|ZEIGTE|wolffParkinsonWhiteSyndrom",
+        
+        "elektrophysiologischeUntersuchung|ZEIGTE|prIntervall",
+        "elektrophysiologischeUntersuchung|ZEIGTE|zweiterQrsKomplex"
+    ]
+}
