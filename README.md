@@ -36,8 +36,16 @@ The system consists of the following components:
   - Utilizes the Llama 3.1 model for generating intelligent and contextual responses.
 
 ### Visual Representations
-- **Schematic Architecture**: Displays the system's logical flow.  
+- **Schematic Architecture**: Displays the system's logical flow.
+
+
+ ![image](https://github.com/user-attachments/assets/925e4f65-7f3a-4a1e-bfad-b8a2d7d2b86c)
+ 
+
 - **Graphical Architecture**: Provides a visual representation of component interactions.
+
+![image](https://github.com/user-attachments/assets/4142a055-3f25-416f-8c9a-e3e448f39735)
+
 
 ---
 
